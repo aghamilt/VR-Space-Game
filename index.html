@@ -3,29 +3,228 @@
   <head>
     <title>VR Space Game - A-Frame</title>
     <meta name="description" content="version">
+    
+    <!-- All of the motion controls for the game comes from these 2 Script lines-->
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
   </head>
   <body>
     <a-scene>
       
-      <a-sphere id="Sphere1" position="-10 1.25 -5" radius="1.25" color="#ffffff" shadow="" rotation="0 0 0" scale="1 1 1" visible="true" material="color:#ffffff" geometry="primitive:sphere;radius:1.25"></a-sphere>
-      <a-sphere id="Sphere2" position="10 1.25 -5" radius="1.25" color="#ffffff" shadow="" rotation="0 0 0" scale="1 1 1" visible="true" material="color:#ffffff" geometry="primitive:sphere;radius:1.25"></a-sphere>
-      <a-sphere id="Sphere3" position="-10 20 -5" radius="10" color="#ffffff" shadow="" rotation="0 0 0" scale="1 1 1" visible="true" material="color:#ffffff" geometry="primitive:sphere;radius:10"></a-sphere>
-      <a-sphere id="Sphere4" position="10 10 -5" radius="1.25" color="#ffffff" shadow="" rotation="0 0 0" scale="1 1 1" visible="true" material="color:#ffffff" geometry="primitive:sphere;radius:1.25"></a-sphere>
+      <a-sphere id="Sphere1"
+                position="-10 1.25 -5" 
+                radius="1.25"
+                color="#00BFFF" 
+                shadow="" 
+                rotation="0 0 0" 
+                scale="1 1 1"
+                visible="true" 
+                material="color:#ffffff" 
+                geometry="primitive:sphere;radius:1.25"></a-sphere>
+      
+      
+      <!-- greenCyl is the sphere directly to the right/ closest to the players starting position-->
+      <!--How postion works.  postion = xValue yValue zValue
+          rotation = xValue yValue zValue
+          scale = widthValue heightValue depthValue  (scale just makes your object bigger or smaller depending on the values)
+          src = "img/bubbles.jpg"(this line can add a texture to a shape, making it more realistic, depending on the downloaded image you use)
+
+-->
+      
+      
+      <a-cylinder id="greenCyl"
+              
+                position="10 1.25 -5" 
+                color="#00FF00" 
+                height = "3"
+                radius=".5" 
+              
+                shadow="" 
+                rotation="25 0 0" 
+                scale="1 1 1" 
+                visible="true" 
+           
+                
+                >
+        
+        
+               <!--
+                    I dont think we need these lines
+                        material="color:#ffffff"
+                    geometry="primitive:sphere;radius:1.25"-->
+        
+        
+        
+        
+                <!--  This animation code makes the cyilnder rotate
+                        to = xRotation yRotation zRotation-->        
+            <a-animation   
+                         attribute = "rotation" 
+                         repeat = "indefinite"
+                         to = "25 360 0"
+                                             
+                         ></a-animation>
+               
+      </a-cylinder> 
+      
+      
+        <a-cylinder id="greenCyl2"
+              
+                position="11 10.25 -20" 
+                color="#00FF00" 
+                height = "3"
+                radius=".5" 
+              
+                shadow="" 
+                rotation="25 0 0" 
+                scale="1 1 1" 
+                visible="true" 
+           
+                
+                >
+        
+        
+               <!--
+                    I dont think we need these lines
+                        material="color:#ffffff"
+                    geometry="primitive:sphere;radius:1.25"-->
+        
+        
+        
+        
+                <!--  This animation code makes the cyilnder rotate
+                        to = xRotation yRotation zRotation-->        
+            <a-animation   
+                         attribute = "rotation" 
+                         repeat = "indefinite"
+                         to = "25 360 0"
+                                             
+                         ></a-animation>
+               
+      </a-cylinder> 
+      
+      
+        <!-- This is the cylinder furthest to the right-->
+        <a-cylinder id="greenCyl3"
+              
+                position="130 1.25 -5" 
+                color="#00FF00" 
+                height = "3"
+                radius=".5" 
+              
+                shadow="" 
+                rotation="25 0 0" 
+                scale="1 1 1" 
+                visible="true" 
+           
+                
+                >
+        
+        
+               <!--
+                    I dont think we need these lines
+                        material="color:#ffffff"
+                    geometry="primitive:sphere;radius:1.25"-->
+        
+        
+        
+        
+                <!--  This animation code makes the cyilnder rotate
+                        to = xRotation yRotation zRotation-->        
+            <a-animation   
+                         attribute = "rotation" 
+                         repeat = "indefinite"
+                         to = "25 360 0"
+                                             
+                         ></a-animation>
+               
+      </a-cylinder> 
+      
+      
+      <!-- This is the cylinder farthest away-->
+        <a-cylinder id="greenCyl4"
+              
+                position="15 1.25 -220" 
+                color="#00FF00" 
+                height = "3"
+                radius=".5" 
+              
+                shadow="" 
+                rotation="25 0 0" 
+                scale="1 1 1" 
+                visible="true" 
+           
+                
+                >
+        
+        
+               <!--
+                    I dont think we need these lines
+                        material="color:#ffffff"
+                    geometry="primitive:sphere;radius:1.25"-->
+        
+        
+        
+        
+                <!--  This animation code makes the cyilnder rotate
+                        to = xRotation yRotation zRotation-->        
+            <a-animation   
+                         attribute = "rotation" 
+                         repeat = "indefinite"
+                         to = "25 360 0"
+                                             
+                         ></a-animation>
+               
+      </a-cylinder> 
+      
+                  
+      <a-sphere id="Sphere3"
+                position="-10 20 -5"
+                radius="10" 
+                color="#FFFF00" 
+                shadow="" 
+                rotation="0 0 0"
+                scale="1 1 1" 
+                visible="true" 
+                material="color:#ffffff" 
+                geometry="primitive:sphere;radius:10"></a-sphere> 
+
       
       <a-assets>
         <img id="sky" src="https://cdn.glitch.com/1130decf-216b-4ff0-a78d-0239aed556b1%2FTychoSkymapII.t5_16384x08192.jpg?1518735372168"/>
       </a-assets>
 
-      <a-entity light="type:directional;color:#EEE;intensity:1" position="-5000 1 0" rotation="0 0 0" scale="1 1 1" visible="true" id="sun" geometry="primitive:sphere;radius:10" material="shader:flat;transparent:true;fog:true"></a-entity>
+      
+      
+                      <!-- This line of code adds a metalic color to the spheres-->
+      <a-entity light="type:directional;color:#EEE;intensity:1" position="-5000 1 0" rotation="0 0 0" scale="1 1 1" visible="true" id="sun" geometry="primitive:sphere;radius:10" material="shader:flat;transparent:true;fog:true"></a-entity> 
 
+      
+      
       <a-sky src="#sky" rotation="-90 0 0"></a-sky>
       
-      <a-entity camera="active:false" look-controls="" wasd-controls="fly:true;acceleration:100" position="-37.062 3.83 10.403" rotation="12.078 -43.545 0" scale="1 1 1" visible="true" id="camera">
+      
+            <!--Questions from Vincent: why can't we fly upwards? why isn't the acceleration value changing the movement speed? -->
+      
+            <!-- Just realized line 97 - line 114 has no effect on the code -->
+        <a-entity 
+                
+            camera="active:false" look-controls="" wasd-controls="fly:true;
+            acceleration:100" 
+            position="-37.062 3.83 10.403"
+            rotation="12.078 -43.545 0" 
+            scale="1 1 1"
+            visible="true" 
+            id="camera">      
+        
+        
+            
+                                                          <!--  This comment block was just my failed attempt at trying to recreate the flying code 
+                                                                <a-entity camera look - controls wasd-controls></a-entity>
+                                                              <a-entity > fly = true; acceleration = 900;  </a-entity> -->
         
       <!--This acts as a HUD-->
-      <a-entity geometry="primitive:plane;height:0.2;width:0.2" position="0.7 0.7 -1" material="color:gray;opacity:0.5" text="Elements:1" rotation="0 0 0" scale="1 1 1" visible="true" id="HUD"></a-entity></a-entity>
+      <a-entity geometry="primitive:plane;height:0.2;width:0.2" position="0.7 0.7 -1" material="color:gray;opacity:0.5" text="Elements:1" rotation="0 0 0" scale="1 1 1" visible="true" id="HUD"></a-entity></a-entity>  
       <!--This acts as a HUD-->
       
       <a-entity vive-controls="hand:left" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true" id="vive-left"></a-entity>
@@ -34,3 +233,41 @@
     </a-scene>
   </body>
 </html>
+
+
+
+
+
+      <!-- Next Steps    ***Green cylinder == Nitrogen
+      1) delete lines 97 - 114
+      2) redo lines 97 - 114 so that acceleration is faster, and flight is enabled
+      3) change position of the green cylinder so that it's far away (takes player 10 seconds to reach it) 
+      4) create multiple green cylinders and have them spread out all over the map
+      5) destroy green cylinders when player postion matches the cylinder position, then add 1 point to player
+      6) When player has 5 points Level 1 is complete (either add scene change or voice over effect)
+      7) create sphere that causes damage to the player and add a rock or meteor texture onto it, read line 30 for details on how to do this
+      8) if player hits 3 meteors game over(restart the game and add sound effect)
+      9) repeat steps 3, 4 and 5 for the elements oxygen,argon, and carbon dioxide. Give each element it's own level
+      10) create a win game screen
+      11) add textures to every element
+      
+
+
+              Sound Effects Needed
+
+        1)    picking up correct item
+         2)   picking up the wrong item
+         3)   winning the game end screen sound effect
+         4)   losing the game sound effect
+         5)   Theme music for level 1, 2, 3 and 4
+         6)   Sound effect for when you complete a level
+            
+
+
+            Optional Sound Effects
+
+        start of the game narraration
+        cheesy enviornment puns?
+      -->
+
+
