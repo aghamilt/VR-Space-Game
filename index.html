@@ -12,7 +12,7 @@
     <a-scene>
       
       <a-sphere id="Sphere1"
-                position="-10 1.25 -5" 
+                position="13 1.25 -200" 
                 radius="1.25"
                 color="#00BFFF" 
                 shadow="" 
@@ -20,7 +20,19 @@
                 scale="1 1 1"
                 visible="true" 
                 material="color:#ffffff" 
-                geometry="primitive:sphere;radius:1.25"></a-sphere>
+                geometry="primitive:sphere;radius:1.25">
+      
+      
+                <!--  This animation code makes the sphere move position
+                        to = xRotation yRotation zRotation-->        
+            <a-animation   
+                         attribute = "position" 
+                         repeat = "indefinite"
+                         to = "30 1.25 -5"
+                                             
+                         ></a-animation>
+      
+      </a-sphere>
       
       
       <!-- greenCyl is the sphere directly to the right/ closest to the players starting position-->
@@ -209,19 +221,24 @@
             <!-- Just realized line 97 - line 114 has no effect on the code -->
         <a-entity 
                 
-            camera="active:false" look-controls="" wasd-controls="fly:true;
-            acceleration:100" 
+                  
+                
+            camera="active:true" look-controls="" wasd-controls="fly:true;
+            acceleration:2000" 
             position="-37.062 3.83 10.403"
             rotation="12.078 -43.545 0" 
             scale="1 1 1"
             visible="true" 
             id="camera">      
+          
+          
+
         
         
             
-                                                          <!--  This comment block was just my failed attempt at trying to recreate the flying code 
-                                                                <a-entity camera look - controls wasd-controls></a-entity>
-                                                              <a-entity > fly = true; acceleration = 900;  </a-entity> -->
+                                                          <!--  ******* The "camera" is actually the player character. The position controls
+                                                            The characters starting position.
+                                                              camera = "active"  activates the code for acceleration and fly-->
         
       <!--This acts as a HUD-->
       <a-entity geometry="primitive:plane;height:0.2;width:0.2" position="0.7 0.7 -1" material="color:gray;opacity:0.5" text="Elements:1" rotation="0 0 0" scale="1 1 1" visible="true" id="HUD"></a-entity></a-entity>  
