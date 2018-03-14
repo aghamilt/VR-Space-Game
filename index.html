@@ -7,6 +7,29 @@
     <!-- All of the motion controls for the game comes from these 2 Script lines-->
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+    <script>
+      
+      //This block of code builds the timer
+      //things typed in <script> are typed in javascript, that's why the comment lines change
+      
+      
+      var deadline = new Date().getTime() + 1 *60*1000;   //1 = 1 minute from now, 60 = 60 seconds in a minute, 1000 = 1000 mili seconds in a minute. This makes the deadline/stop time for the timer a minute from now/ a minute in total
+    function getTimeRemaining(endtime){
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor( (t/1000) % 60 );
+  var minutes = Math.floor( (t/1000/60) % 60 );
+  var hours = Math.floor( (t/(1000*60*60)) % 24 );
+  var days = Math.floor( t/(1000*60*60*24) );
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+    </script>
   </head>
   <body>
     <a-scene>
@@ -216,8 +239,7 @@
       <a-sky src="#sky" rotation="-90 0 0"></a-sky>
       
       
-            <!--Questions from Vincent: why can't we fly upwards? why isn't the acceleration value changing the movement speed? -->
-      
+     
             <!-- Just realized line 97 - line 114 has no effect on the code -->
         <a-entity 
                 
