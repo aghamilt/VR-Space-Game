@@ -15,11 +15,14 @@
       
       var deadline = new Date().getTime() + 1 *60*1000;   //1 = 1 minute from now, 60 = 60 seconds in a minute, 1000 = 1000 mili seconds in a minute. This makes the deadline/stop time for the timer a minute from now/ a minute in total
     function getTimeRemaining(endtime){
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor( (t/1000) % 60 );
-  var minutes = Math.floor( (t/1000/60) % 60 );
-  var hours = Math.floor( (t/(1000*60*60)) % 24 );
-  var days = Math.floor( t/(1000*60*60*24) );
+  var t = Date.parse(endtime) - Date.parse(new Date());  //the variable "t" holds the value remaining time until the deadline
+  var seconds = Math.floor( (t/1000) % 60 ); // "t/1000" and divide remainder by 60 == seconds
+  var minutes = Math.floor( (t/1000/60) % 60 );// "t/1000/60" and divide remainder by 60 == minutes
+  var hours = Math.floor( (t/(1000*60*60)) % 24 );  // "t/1000*60*60 "  == hours
+  var days = Math.floor( t/(1000*60*60*24) );  // "t/1000*60*60*24 "  == days
+      
+      getTimeRemaining(deadline).minutes // retrieves the value of minutes
+      
   return {
     'total': t,
     'days': days,
@@ -33,6 +36,44 @@
   </head>
   <body>
     <a-scene>
+      
+      
+      <div id="clockdiv"     
+           >           
+           
+         
+        function initializeClock(id, endtime)
+{
+        
+  var clock = document.getElementById(id);
+  var timeinterval = setInterval(function() {
+        
+                                                <!-- setInterval executes the function every second: This function
+                                                1) calulates the reamining time 2) outputs the remaining time to div 3) if time gets to zero stop the clock-->
+            
+                
+        
+    var t = getTimeRemaining(endtime);
+    clock.innerHTML = 'days: ' + t.days + '<br>' +      
+                      'hours: '+ t.hours + '<br>' +
+                      'minutes: ' + t.minutes + '<br>' +
+                      'seconds: ' + t.seconds;
+        
+     <!-- if the timer hits zero, start the clock over again
+          i edited out the if statement for now-->
+ 
+        
+        },1000);  
+                  
+                  
+                
+}  
+      initializeClock('clockdiv', deadline); <!--This line runs the clock -->
+                  
+      
+      </div>
+      
+      
       
       <a-sphere id="Sphere1"
                 position="13 1.25 -200" 
@@ -240,14 +281,22 @@
       
       
      
-            <!-- Just realized line 97 - line 114 has no effect on the code -->
+            <!-- Just realized line 97 - line 114 has no effect on the code 
+
+
+
+  
+              Position values " xvalue, yvalue, zvalue"-->
+        
+        
+              
         <a-entity 
                 
                   
                 
             camera="active:true" look-controls="" wasd-controls="fly:true;
             acceleration:2000" 
-            position="-37.062 3.83 10.403"
+             position ="-37.062 3.83 10.403"      
             rotation="12.078 -43.545 0" 
             scale="1 1 1"
             visible="true" 
@@ -262,7 +311,9 @@
                                                             The characters starting position.
                                                               camera = "active"  activates the code for acceleration and fly-->
         
-      <!--This acts as a HUD-->
+      <!--This acts as a HUD
+        **THE CLOCK NEEDS TO GO HERE-->
+          
       <a-entity geometry="primitive:plane;height:0.2;width:0.2" position="0.7 0.7 -1" material="color:gray;opacity:0.5" text="Elements:1" rotation="0 0 0" scale="1 1 1" visible="true" id="HUD"></a-entity></a-entity>  
       <!--This acts as a HUD-->
       
